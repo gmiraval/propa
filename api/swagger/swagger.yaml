@@ -1,0 +1,114 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Hello World App
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /version:
+    # our controller name
+    x-swagger-router-controller: propa
+    get:
+      description: get dll version
+      operationId: version
+      # define the type of response for Success "200" and Error
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/OkResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+          
+  /clima/rain_intensity:
+    # our controller name
+    x-swagger-router-controller: propa
+    get:
+      description: Rain Intensity (mm/h)
+      operationId: rain_intensity
+      parameters:
+      - name: lat
+        in : query
+        description: latitude
+        required: true
+        type: number
+        format: double
+      - name: lon
+        in : query
+        description: longitude
+        required: true
+        type: number
+        format: double
+      - name: unav
+        in : query
+        description: unavailability
+        required: true
+        type: number
+        format: double
+        
+  /clima/Nwet:
+    # our controller name
+    x-swagger-router-controller: propa
+    get:
+      description: Wet term of refraction coindex
+      operationId: Nwet
+      parameters:
+      - name: lat
+        in : query
+        description: latitude
+        required: true
+        type: number
+        format: double
+      - name: lon
+        in : query
+        description: longitude
+        required: true
+        type: number
+        format: double
+        
+	# define the type of response for Success "200" and Error
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/OkResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+            
+    
+        
+        
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  OkResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
