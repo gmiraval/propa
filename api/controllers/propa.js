@@ -23,7 +23,7 @@ var long = ref.types.long;
 var double = ref.types.double;
 
 function Version(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'version': [long, [] ]
 });
 var result = lib.version();
@@ -31,7 +31,7 @@ res.json(result);
 }
 
 function Rain_Intensity(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'rain_intensity': [double, [double,double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -43,7 +43,7 @@ res.json(result);
 }
 
 function Nwet(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'NWET': [double, [double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -54,7 +54,7 @@ res.json(result);
 }
 
 function Rain_height(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'rain_height': [double, [double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -65,7 +65,7 @@ res.json(result);
 }
 
 function TCC(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'LWCC': [double, [double,double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -77,7 +77,7 @@ res.json(result);
 }
 
 function WVC(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'SWVD': [double, [double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -88,7 +88,7 @@ res.json(result);
 }
 
 function iwvc(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'IWVC': [double, [double,double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -100,7 +100,7 @@ res.json(result);
 }
 
 function Temperature(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'temperature': [double, [double,double] ]
 });
 var lat = req.swagger.params.lat.value;
@@ -112,7 +112,7 @@ res.json(result);
 
 
 function Tmr(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'TMR': [double, [double] ]
 });
 var surft = req.swagger.params.surft.value;
@@ -122,7 +122,7 @@ res.json(result);
 }
 
 function Tnoise(req, res) {
-var lib = ffi.Library('/usr/local/lib/propa64', {
+var lib = ffi.Library('./api/lib/propa64', {
   'noise_temperature': [double, [double,double] ]
 });
 var TAtt = req.swagger.params.TAtt.value;
