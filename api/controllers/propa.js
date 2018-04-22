@@ -10,7 +10,14 @@ module.exports = {
   iwvc:iwvc,
   Temperature:Temperature,
   Tmr:Tmr,
-  Tnoise:Tnoise
+  Tnoise:Tnoise,
+  Agaz:Agaz,
+  Agaz_exceeded:Agaz_exceeded,
+  Arain:Arain,
+  Acloud:Acloud,
+  Iscint:Iscint,
+  XPD:XPD,
+  EFSR:EFSR
 };
 
 
@@ -129,6 +136,106 @@ var TAtt = req.swagger.params.TAtt.value;
 var MRtemp = req.swagger.params.MRtemp.value;
 
 var result = lib.noise_temperature(TAtt,MRtemp);
+res.json(result);
+}
+
+function Agaz(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'gaseous_attenuation': [double, [double,double,double,double] ]
+});
+var freq = req.swagger.params.freq.value;
+var elev = req.swagger.params.elev.value;
+var temp = req.swagger.params.temp.value;
+var wvd = req.swagger.params.wvd.value;
+
+var result = lib.gaseous_attenuation(freq,elev,temp,wvd);
+res.json(result);
+}
+
+function Agaz_exceeded(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'gaseous_attenuation_exc': [double, [double,double,double,double] ]
+});
+var freq = req.swagger.params.freq.value;
+var elev = req.swagger.params.elev.value;
+var temp = req.swagger.params.temp.value;
+var iwvc = req.swagger.params.iwvc.value;
+
+var result = lib.gaseous_attenuation_exc(freq,elev,temp,iwvc);
+res.json(result);
+}
+
+function Arain(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'rain_attenuation': [double, [double,double,double,double,double,double,double,double] ]
+});
+var lat = req.swagger.params.lat.value;
+var freq = req.swagger.params.freq.value;
+var elev = req.swagger.params.elev.value;
+var unav = req.swagger.params.unav.value;
+var STAHeight = req.swagger.params.STAHeight.value;
+var RainHeight = req.swagger.params.RainHeight.value;
+var RainInt = req.swagger.params.RainInt.value;
+var tilt = req.swagger.params.tilt.value;
+
+var result = lib.rain_attenuation(lat,freq,elev,temp,unav,STAHeight,RainHeight,RainInt,tilt);
+res.json(result);
+}
+
+function Acloud(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'cloud_attenuation': [double, [double,double,double] ]
+});
+var freq = req.swagger.params.freq.value;
+var elev = req.swagger.params.elev.value;
+var tccw = req.swagger.params.tccw.value;
+
+
+var result = lib.cloud_attenuation(freq,elev,tccw);
+res.json(result);
+}
+
+function Iscint(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'scintillation': [double, [double,double,double,double,double,double,double] ]
+});
+var wref = req.swagger.params.wref.value;
+var freq = req.swagger.params.freq.value;
+var elev = req.swagger.params.elev.value;
+var unav = req.swagger.params.unav.value;
+var STAHeight = req.swagger.params.STAHeight.value;
+var AntEff = req.swagger.params.AntEff.value;
+var AntDiam = req.swagger.params.AntDiam.value;
+
+var result = lib.scintillation(wref,freq,elev,temp,unav,STAHeight,AntEff,AntDiam);
+res.json(result);
+}
+
+function XPD(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'XPD': [double, [double,double,double,double,double] ]
+});
+var RainExc = req.swagger.params.RainExc.value;
+var tilt = req.swagger.params.tilt.value;
+var freq = req.swagger.params.freq.value;
+var PathElev = req.swagger.params.PathElev.value;
+var percTime = req.swagger.params.percTime.value;
+
+var result = lib.XPD(RainExc,tilt,freq,PathElev,percTime);
+res.json(result);
+}
+
+function EFSR(req, res) {
+var lib = ffi.Library('./api/lib/propa64', {
+  'XPD': [double, [double,double,double,double] ]
+});
+var equiExc = req.swagger.params.equiExc.value;
+var f1dB = req.swagger.params.f1dB.value;
+var f1GHz = req.swagger.params.f1GHz.value;
+var f2GHz = req.swagger.params.f2GHz.value;
+
+
+var result = lib.EFSR(equiExc,f1dB,f1GHz,f2GHz);
 res.json(result);
 }
 
