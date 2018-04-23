@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
+  version: "1.0.0"
   title: Propa API
 # during dev, should point to your local machine
 host: localhost:10010
@@ -629,21 +629,9 @@ paths:
     # our controller name
     x-swagger-router-controller: propa
     get:
-      description: equiprobable excess rain attenuation on link f2
+      description: RAIN ATTENUATION ON FREQ 2 FROM FREQ 1 (using frequency scaling) 
       operationId: EFSR
       parameters:
-      - name: equiExc
-        in : query
-        description: equiprobable excess rain attenuation on link
-        required: true
-        type: number
-        format: double
-      - name: f1dB
-        in : query
-        description: frequency f1 (dB)
-        required: true
-        type: number
-        format: double     
       - name: f1GHz
         in : query
         description: Frequency f1 (GHz)
@@ -656,6 +644,13 @@ paths:
         required: true
         type: number
         format: double
+      - name: Arain
+        in : query
+        description: equiprobable excess rain attenuation on link @ f1 (dB)
+        required: true
+        type: number
+        format: double
+      
       # define the type of response for Success "200" and Error
       responses:
         "200":

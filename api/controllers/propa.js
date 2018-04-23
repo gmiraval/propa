@@ -227,15 +227,14 @@ res.json(result);
 
 function EFSR(req, res) {
 var lib = ffi.Library('./api/lib/propa64', {
-  'XPD': [double, [double,double,double,double] ]
+  'XPD': [double, [double,double,double] ]
 });
-var equiExc = req.swagger.params.equiExc.value;
-var f1dB = req.swagger.params.f1dB.value;
 var f1GHz = req.swagger.params.f1GHz.value;
 var f2GHz = req.swagger.params.f2GHz.value;
+var Arain = req.swagger.params.Arain.value;
 
 
-var result = lib.EFSR(equiExc,f1dB,f1GHz,f2GHz);
+var result = lib.EFSR(f1GHz,f2GHz,Arain);
 res.json(result);
 }
 
