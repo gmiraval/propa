@@ -3,10 +3,10 @@ info:
   version: "1.0.0"
   title: Propa API
 # during dev, should point to your local machine
-host: localhost:10010
+#host: localhost:10010
 
 #production host
-#host: propaapi.herokuapp.com
+host: propaapi.herokuapp.com
 # basePath prefixes all resource paths 
 basePath: /
 # 
