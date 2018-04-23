@@ -1,12 +1,14 @@
-# PROPA Library Rest API by Guillermo Miravalles
+# PROPA Library -  Rest API
+by Guillermo Miravalles
+
 Version: 1.0.0
+
+Date: 20180423
+
 e-mail: miravallesg@gmail.com
 
-https://logiciels.cnes.fr/en/content/propa
-PROPA : Dynamic Link Library PROPAGATION
+This is a Rest API that implements the different functions provided by the propa library to compute propagation losses according to the ITU-R P. Recommendations
 
- 
+You can find the documentation & test the API @ http://<app_host>:<app_port>/api-doc
 
-The PROPAGATION Dynamic Link Library contains functions to compute propagation losses according to the ITU-R P. Recommendations
-
-
+lib source: https://logiciels.cnes.fr/en/content/propa

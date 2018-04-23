@@ -11,7 +11,9 @@
     "express": "^4.12.3",
     "ffi": "^2.2.0",
     "newrelic": "^4.0.0",
-    "swagger-express-mw": "^0.1.0"
+    "swagger-express-mw": "^0.1.0",
+    "swagger-ui-express": "^3.0.8",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "should": "^7.1.0",
