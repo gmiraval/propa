@@ -178,7 +178,7 @@ var RainHeight = req.swagger.params.RainHeight.value;
 var RainInt = req.swagger.params.RainInt.value;
 var tilt = req.swagger.params.tilt.value;
 
-var result = lib.rain_attenuation(lat,freq,elev,temp,unav,STAHeight,RainHeight,RainInt,tilt);
+var result = lib.rain_attenuation(lat,freq,elev,unav,STAHeight,RainHeight,RainInt,tilt);
 res.json(result);
 }
 
