@@ -12,3 +12,9 @@ This is a Rest API that implements the different functions provided by the propa
 You can find the documentation & test the API @ http://<app_host>:<app_port>/api-doc
 
 lib source: https://logiciels.cnes.fr/en/content/propa
+
+sample API:
+https://propaapi.herokuapp.com/
+
+https://propaapi.herokuapp.com/version
+
