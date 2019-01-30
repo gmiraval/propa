@@ -18,3 +18,5 @@ https://propaapi.herokuapp.com/
 
 https://propaapi.herokuapp.com/version
 
+https://propaapi.herokuapp.com/api-docs/
+
