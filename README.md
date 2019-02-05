@@ -20,3 +20,4 @@ https://propaapi.herokuapp.com/version
 
 https://propaapi.herokuapp.com/api-docs/
 
+ToDo: Use AWS + API GW + lambda
