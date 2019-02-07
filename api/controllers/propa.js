@@ -207,7 +207,7 @@ var STAHeight = req.swagger.params.STAHeight.value;
 var AntEff = req.swagger.params.AntEff.value;
 var AntDiam = req.swagger.params.AntDiam.value;
 
-var result = lib.scintillation(wref,freq,elev,temp,unav,STAHeight,AntEff,AntDiam);
+var result = lib.scintillation(wref,freq,elev,unav,STAHeight,AntEff,AntDiam);
 res.json(result);
 }
 
